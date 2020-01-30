@@ -106,7 +106,7 @@ export PYTHONPATH=$TRAVIS_BUILD_DIR:$TRAVIS_BUILD_DIR/../pulpcore:${PYTHONPATH}
 
 set -u
 
-if [[ "$TEST" == "performance" ]]; then
+#if [[ "$TEST" == "performance" ]]; then
   echo "--- Performance Tests ---"
   if [[ -z ${PERFORMANCE_TEST+x} ]]; then
     pytest -vv -r sx --color=yes --pyargs --capture=no --durations=0 pulp_file.tests.performance || show_logs_and_return_non_zero
@@ -114,14 +114,14 @@ if [[ "$TEST" == "performance" ]]; then
     pytest -vv -r sx --color=yes --pyargs --capture=no --durations=0 pulp_file.tests.performance.test_$PERFORMANCE_TEST || show_logs_and_return_non_zero
   fi
   exit
-fi
+#fi
 
-if [ -f $FUNC_TEST_SCRIPT ]; then
-    $FUNC_TEST_SCRIPT
-else
-    pytest -v -r sx --color=yes --pyargs pulp_file.tests.functional || show_logs_and_return_non_zero
-fi
-
-if [ -f $POST_SCRIPT ]; then
-    $POST_SCRIPT
-fi
+#if [ -f $FUNC_TEST_SCRIPT ]; then
+#    $FUNC_TEST_SCRIPT
+#else
+#    pytest -v -r sx --color=yes --pyargs pulp_file.tests.functional || show_logs_and_return_non_zero
+#fi
+#
+#if [ -f $POST_SCRIPT ]; then
+#    $POST_SCRIPT
+#fi
