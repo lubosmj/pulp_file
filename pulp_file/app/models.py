@@ -19,7 +19,7 @@ log = getLogger(__name__)
 
 class FileContent(Content):
     """
-    The "file" content type.
+    The file content type.
 
     Content of this type represents a single file uniquely
     identified by path and SHA256 digest.
